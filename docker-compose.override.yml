@@ -1,0 +1,10 @@
+version: '3.8'  # Версия Docker Compose
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile.production # Используем Dockerfile.production для тестов
+    command: make dev  # Указываем команду, которая будет выполнена при запуске
+    volumes:
+    - ./app:/app  # Монтируем локальную директорию app в контейнер

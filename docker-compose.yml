@@ -1,0 +1,15 @@
+version: '3.8'  # Версия Docker Compose
+
+services:
+  app:  # Название сервиса
+    build:
+    # Контекст для сборки образа,
+    # в данном случае, текущая директория
+      context: .
+    # Имя Docker-файла из которого будет собран образ
+      dockerfile: Dockerfile
+    image: kima30/docker-project-74:latest # Для использования из Docker Hub
+    volumes:
+    - ./app:/app # Монтируем локальную директорию app в контейнер
+    ports:
+      - "8080:8080"  # Пробрасываем порты
