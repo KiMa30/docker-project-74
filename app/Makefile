@@ -18,11 +18,11 @@ start:
 dev:
 	npx concurrently "make start-frontend" "make start-backend"
 
-start-backend:
-	npm start -- --watch --verbose-watch --ignore-watch='node_modules .git .sqlite'
+start-backend:  # Убираем '--watch', так как оне нужен для локальной разработки и ведет к зависанию ci
+	npm start
 
-start-frontend:
-	npx webpack --watch --progress
+start-frontend:  # Убираем '--watch', так как оне нужен для локальной разработки и ведет к зависанию ci
+	npx webpack --progress
 
 lint:
 	npx eslint .
@@ -33,5 +33,5 @@ lint-fix:
 test:
 	NODE_ENV=test npm test -s
 
-ci:
+ci:    # Запуск тестов с использованием docker-compose
 	docker-compose -f ../docker-compose.yml up --abort-on-container-exit --exit-code-from app
