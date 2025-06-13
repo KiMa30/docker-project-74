@@ -19,7 +19,7 @@ jobs:
           node-version: '20.12.2'
 
       - name: Install dependencies and run tests
-        run: make ci  # Запускает тесты с помощью Docker Compose
+        run: make -C app ci  # Запускает тесты с помощью Docker Compose
 
       - name: Build Docker image
         run: docker build -t docker push kima30/docker-project-74:latest -f Dockerfile.production .
