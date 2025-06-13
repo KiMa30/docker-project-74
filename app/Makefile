@@ -2,6 +2,8 @@ setup: install db-migrate
 
 install:
 	npm install
+	npm install webpack --save-dev
+	npm install webpack-cli
 
 db-migrate:
 	npm run migrate
