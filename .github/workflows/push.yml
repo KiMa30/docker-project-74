@@ -18,6 +18,11 @@ jobs:
         with:
           node-version: '20.12.2'
 
+      - name: Install Docker Compose
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y docker-compose
+
       - name: Install dependencies and run tests
         run: make -C app ci  # Запускает тесты с помощью Docker Compose
 
