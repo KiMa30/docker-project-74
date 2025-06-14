@@ -2,8 +2,6 @@ setup: install db-migrate
 
 install:
 	npm install
-	npm install webpack --save-dev
-	npm install webpack-cli
 
 db-migrate:
 	npm run migrate
@@ -35,5 +33,6 @@ lint-fix:
 test:
 	NODE_ENV=test npm test -s
 
-ci:    # Запуск тестов с использованием docker-compose
+ci:    # Запуск тестов с использованием docker-compose (убрали docker-compose -f ../docker-compose.yml up --abort-on-container-exit --exit-code-from app)
 	docker-compose -f ../docker-compose.yml up --abort-on-container-exit --exit-code-from app
+
