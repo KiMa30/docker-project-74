@@ -5,7 +5,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.production # Используем Dockerfile.production для тестов
-    command: make dev  # Указываем команду, которая будет выполнена при запуске
+    command: make test  # Указываем команду, которая будет выполнена при запуске
     volumes:
     - ./app:/app  # Монтируем локальную директорию app в контейнер
     - /app/node_modules
