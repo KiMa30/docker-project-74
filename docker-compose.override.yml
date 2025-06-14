@@ -8,3 +8,4 @@ services:
     command: make dev  # Указываем команду, которая будет выполнена при запуске
     volumes:
     - ./app:/app  # Монтируем локальную директорию app в контейнер
+    - /app/node_modules

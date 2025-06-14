@@ -11,5 +11,6 @@ services:
     image: kima30/docker-project-74:latest # Для использования из Docker Hub
     volumes:
     - ./app:/app # Монтируем локальную директорию app в контейнер
+    - /app/node_modules
     ports:
       - "8080:8080"  # Пробрасываем порты
