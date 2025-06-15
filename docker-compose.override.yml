@@ -6,7 +6,7 @@ services:
       context: .
       dockerfile: Dockerfile.production # Используем Dockerfile.production для тестов
     # command: make test  # Указываем команду, которая будет выполнена при запуске
-    command: make dev
+    command: ${COMMAND:-make dev}  # По умолчанию make dev, но можно переопределить
     ports:
       - "8080:8080"  # Пробрасываем порты
     volumes:

@@ -34,4 +34,4 @@ test:
 	NODE_ENV=test npm test -s
 
 ci:    # Запуск тестов с использованием docker-compose
-	docker-compose -f ../docker-compose.yml -f ../docker-compose.override.yml up --abort-on-container-exit --exit-code-from app
+	COMMAND="make test" docker-compose -f ../docker-compose.yml -f ../docker-compose.override.yml up --abort-on-container-exit --exit-code-from app
