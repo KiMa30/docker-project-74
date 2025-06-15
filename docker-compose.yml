@@ -12,5 +12,24 @@ services:
     volumes:
     - ./app:/app # Монтируем локальную директорию app в контейнер
     - /app/node_modules
+    # ports:
+    #  - "8080:8080"  # Пробрасываем порты
+  caddy:
+    image: caddy:latest
+    restart: unless-stopped
+    cap_add:
+      - NET_ADMIN
     ports:
-      - "8080:8080"  # Пробрасываем порты
+      - "80:80"
+      - "443:443"
+      - "443:443/udp"
+    volumes:
+      - ./services/caddy:/etc/caddy
+      - caddy_data:/data
+      - caddy_config:/config
+    depends_on:
+      - app
+
+volumes:
+  caddy_data:
+  caddy_config:  

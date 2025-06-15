@@ -5,7 +5,10 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.production # Используем Dockerfile.production для тестов
-    command: make test  # Указываем команду, которая будет выполнена при запуске
+    # command: make test  # Указываем команду, которая будет выполнена при запуске
+    command: make dev
+    ports:
+      - "8080:8080"  # Пробрасываем порты
     volumes:
     - ./app:/app  # Монтируем локальную директорию app в контейнер
     - /app/node_modules
