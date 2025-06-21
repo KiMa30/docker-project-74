@@ -23,6 +23,9 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y docker-compose
 
+      - name: Copy .env.example
+        run: cp app/.env.example .env
+
       - name: Install dependencies and run tests
         run: make -C app ci  # Запускает тесты с помощью Docker Compose
 
