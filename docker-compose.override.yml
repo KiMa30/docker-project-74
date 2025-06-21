@@ -7,6 +7,11 @@ services:
       dockerfile: Dockerfile.production # Используем Dockerfile.production для тестов
     # command: make test  # Указываем команду, которая будет выполнена при запуске
     command: ${COMMAND:-make dev}  # По умолчанию make dev, но можно переопределить
+    environment:
+      DATABASE_HOST: ${DATABASE_HOST}
+      DATABASE_NAME: ${DATABASE_NAME}
+      DATABASE_USERNAME: ${DATABASE_USERNAME}
+      DATABASE_PASSWORD: ${DATABASE_PASSWORD}
     ports:
       - "8080:8080"  # Пробрасываем порты
     volumes:
