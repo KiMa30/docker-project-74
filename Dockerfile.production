@@ -13,4 +13,4 @@ EXPOSE 8080
 ENV NODE_ENV=production
 RUN make build
 
-CMD make test  # Добавляем команду для тестов
+CMD ["make", "test"]  # Добавляем команду для тестов

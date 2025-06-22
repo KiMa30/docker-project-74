@@ -26,6 +26,13 @@ jobs:
       - name: Copy .env.example
         run: cp app/.env.example .env
 
+      # - name: Create .env from secrets # Создание .env из секреток в GitHub Actions
+      #   run: |
+      #     echo "DATABASE_HOST=${{ secrets.PG_DB_HOST }}" >> .env
+      #     echo "DATABASE_NAME=${{ secrets.PG_DB_NAME }}" >> .env
+      #     echo "DATABASE_USERNAME=${{ secrets.PG_DB_USER }}" >> .env
+      #     echo "DATABASE_PASSWORD=${{ secrets.PG_DB_PASSWORD }}" >> .env
+
       - name: Install dependencies and run tests
         run: make -C app ci  # Запускает тесты с помощью Docker Compose
 
